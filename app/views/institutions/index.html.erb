@@ -2,18 +2,18 @@
 
 <h1>Institutions</h1>
 
-<table>
-  <thead>
+<table class="table table-striped">
+  <thead class="text-center">
     <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Needs</th>
-      <th>Description</th>
-      <th colspan="3"></th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Address</th>
+      <th scope="col">City</th>
+      <th scope="col">State</th>
+      <th scope="col">Needs</th>
+      <th scope="col">Description</th>
+      <th scope="col" colspan="3"></th>
     </tr>
   </thead>
 
@@ -26,7 +26,7 @@
         <td><%= institution.address %></td>
         <td><%= institution.city %></td>
         <td><%= institution.state %></td>
-        <td><%= institution.needs %></td>
+        <td><%= institution.needs.map(&:necessidade).join(", ") %></td>
         <td><%= institution.description %></td>
         <td><%= link_to 'Show', institution %></td>
         <td><%= link_to 'Edit', edit_institution_path(institution) %></td>

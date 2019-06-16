@@ -14,7 +14,7 @@
       </div>
       <div class="row">
         <div class="col-sm-6 col-lg-12">
-          <strong>Necessidades: </strong><%= @institution.needs %>
+          <strong>Necessidades: </strong><%= @institution.needs.map(&:necessidade).join(", ") %>
         </div>
       </div>
       <br>
