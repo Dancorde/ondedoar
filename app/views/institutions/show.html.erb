@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class='col-sm-6 col-lg-12'>
+  <div class="card">
+    <div class="card-header text-center">
+      <%= @institution.name %>
+    </div>
+    <div class="car-body">
+      <div class="row">
+        <div class="col-sm-6 col-lg-12">
+          <%= @institution.description %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-lg-12">
+          <strong>Necessidades: </strong><%= @institution.needs %>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-sm-6 col-lg-12">
+              <strong>Endereço: </strong><%= @institution.address %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 col-lg-12">
+              <div class="row"></div>
+              <strong>Cidade: </strong><%= @institution.city %>
+              <strong>Estado: </strong><%= @institution.state %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <strong>Phone:</strong> <%= @institution.phone %>
+          </div>
+          <div class="row">
+            <strong>E-mail:</strong> <%= @institution.email %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="card-footer">
+      <%= link_to 'Edit', edit_institution_path(@institution), class: "btn btn-warning" %>
+      <%= link_to 'Back', institutions_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
