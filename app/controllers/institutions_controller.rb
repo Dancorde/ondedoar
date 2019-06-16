@@ -15,10 +15,13 @@ class InstitutionsController < ApplicationController
   # GET /institutions/new
   def new
     @institution = Institution.new
+    @states = State.all
+    @cities = City.all
   end
 
   # GET /institutions/1/edit
   def edit
+    @states = State.all
   end
 
   # POST /institutions

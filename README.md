@@ -1,24 +1,96 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```console
+rails g model Region name
+rails g model State name acronym region:references
+rails g model City name capital:boolean state:references
+```
 
-Things you may want to cover:
+seeds.rb
 
-* Ruby version
+```ruby
+require 'net/http'
+require 'net/https' # for ruby 1.8.7
+require 'json'
 
-* System dependencies
+module BRPopulate
+  def self.states
+    http = Net::HTTP.new('raw.githubusercontent.com', 443); http.use_ssl = true
+    JSON.parse http.get('/celsodantas/br_populate/master/states.json').body
+  end
 
-* Configuration
+  def self.capital?(city, state)
+    city["name"] == state["capital"]
+  end
 
-* Database creation
+  def self.populate
+    states.each do |state|
+      region_obj = Region.find_or_create_by(:name => state["region"])
+      state_obj = State.new(:acronym => state["acronym"], :name => state["name"], :region => region_obj)
+      state_obj.save
 
-* Database initialization
+      state["cities"].each do |city|
+        c = City.new
+        c.name = city["name"]
+        c.state = state_obj
+        c.capital = capital?(city, state)
+        c.save
+	puts "Adicionando a cidade #{c.name} ao estado #{c.state.name}"
+      end
+    end
+  end
+end
 
-* How to run the test suite
+BRPopulate.populate
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+adicionar no Gemfile
 
-* Deployment instructions
+```
+gem 'jquery-rails'
+```
 
-* ...
+adicionar no application.js
+
+```
+//= require jquery
+```
+
+```console
+bundle install
+rails db:migrate
+rails db:seed
+```
+
+institutions.coffee
+
+```javascript
+jQuery -> 
+  cities = $('#institution_city').html()
+  $('#states_sected').change ->
+    state = $('#states_sected :selected').text()
+    
+    options = $(cities).filter("optgroup[label='#{state}']").html()
+    if options
+      $('#institution_city').html(options)
+      $('#institution_city').parent().show()
+    else
+      $('#institution_city').value("Selecione um estado primeiro")
+      $('#institution_city').parent().hide()
+```
+
+trocar
+
+```
+<%= form.text_field :city, class: "form-control" %>
+
+<%= form.text_field :state, class: "form-control" %>
+```
+
+por
+
+```
+<%= form.grouped_collection_select :city, State.order(:name), :cities, :acronym, :name, :name, {include_blank: false}, class: "form-control" %>
+
+<%= form.collection_select(:state, @states, :name, :acronym, {include_blank: false}, {:id => 'states_sected', :class => "form-control"}) %>
+```

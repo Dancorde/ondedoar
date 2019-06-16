@@ -38,15 +38,15 @@
   
     <div class="col-md-6">
       <div class="form-row">
-        <div class="form-group col-md-8">
-          <%= form.label :city %>
-          <%= form.text_field :city, class: "form-control" %>
-        </div>
-      
         <div class="form-group col-md-4">
           <%= form.label :state %>
-          <%= form.text_field :state, class: "form-control" %>
+          <%= form.collection_select(:state, @states, :name, :acronym, {include_blank: false}, {:id => 'states_sected', :class => "form-control"}) %>
         </div>
+
+        <div class="form-group col-md-8">
+          <%= form.label :city %>
+          <%= form.grouped_collection_select :city, State.order(:name), :cities, :acronym, :name, :name, {include_blank: false}, class: "form-control" %>
+        </div>      
       </div>
       
       <div class="form-group">
