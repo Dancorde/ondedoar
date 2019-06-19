@@ -10,6 +10,36 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <%= image_tag("logo-menu.png", :alt => "Smiley face", class: "logo-menu", height: "45", width: "auto") %>
+            <a class="navbar-brand" href="#inicio">ONDE DOAR</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+                
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="./cadastro.html">Cadastre sua instituição </a>
+                    </li>
+    
+                    <li class="nav-item active">
+                        <a class="nav-link" href="">Instituições beneficiadas</a>
+                    </li>
+                    
+                    <li class="nav-item active">
+                        <a class="nav-link " href="./criadores.html" tabindex="-1" aria-disabled="true">Quem somos</a>
+                    </li>
+    
+                    <li class="nav-item active">
+                        <a class="nav-link" id="menu-link4" data-toggle="modal" data-target="#modal-contato" href="#">Contato</a>
+                    </li>
+                </ul>
+                
+                </div>
+        </nav>
+
+        
     <div class="container">
       <%= yield %>
     </div>

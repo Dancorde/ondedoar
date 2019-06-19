@@ -22,6 +22,7 @@ class InstitutionsController < ApplicationController
   # GET /institutions/1/edit
   def edit
     @states = State.all
+    @cities = City.all
   end
 
   # POST /institutions
