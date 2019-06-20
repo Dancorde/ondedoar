@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%= image_tag("logo-menu.png", :alt => "Smiley face", class: "logo-menu", height: "45", width: "auto") %>
+    <%= link_to 'ONDE DOAR', root_path, class: "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <%= link_to 'Cadastre sua instituição', new_institution_path, class: "nav-link" %>
+        </li>
+
+        <li class="nav-item active">
+          <%= link_to 'Instituições beneficiadas', institutions_path, class: "nav-link" %>
+        </li>
+        
+        <li class="nav-item active">
+          <%= link_to 'Quem somos', institutions_path, class: "nav-link" %>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" id="menu-link4" data-toggle="modal" data-target="#modal-contato" href="#">Contato</a>
+        </li>
+      </ul>
+    </div>
+</nav>

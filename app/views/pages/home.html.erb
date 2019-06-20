@@ -1,24 +1,38 @@
-<%= form_tag({:action=>"search", :controller => "pages"}, method: "get") do %>
-  <div class="row form-group">
-    <div class="col-md-12">
-      <%= select_tag :state, options_for_select(State.all.map(&:name)), :class => 'form-control', :prompt => "Escolha um estado" %>
-    </div>
+<div class="text-center">
+  <%= image_tag("logo.png", :alt => "logo onde doar", class: "logo-imagem img-fluid") %>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+
   </div>
-  <div class="row form-group">
-    <div class="col-md-12">
-      <%= grouped_collection_select :city, :city_id, @states, :cities, :name, :name, :name, {include_blank: true}, class: "form-control" %>
-    </div>
+  <div class="col-md-4">
+    <%= form_tag({:action=>"search", :controller => "pages"}, method: "get") do %>
+      <div class="row form-group">
+        <div class="col-md-12">
+          <%= select_tag :state, options_for_select(State.all.map(&:name)), :class => 'form-control', :prompt => "Escolha um estado" %>
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-md-12">
+          <%= grouped_collection_select :city, :city_id, @states, :cities, :name, :name, :name, {include_blank: true}, class: "form-control" %>
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-md-12">
+          <%= select_tag :need, options_for_select(Need.all.map(&:necessidade)), :class => 'form-control', :prompt => "Escolha uma necessidade" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <%= submit_tag "Buscar", :id => "find-on-map", :class => "btn btn-primary btn-lg", :style => "width: 300px;" %>
+        </div>    
+      </div> 
+      
+        
+    <% end %>
   </div>
-  <div class="row form-group">
-    <div class="col-md-12">
-      <%= select_tag :need, options_for_select(Need.all.map(&:necessidade)), :class => 'form-control', :prompt => "Escolha uma necessidade" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <%= submit_tag "Buscar", :id => "find-on-map", :class => "btn btn-primary btn-lg", :style => "width: 300px;" %>
-    </div>    
-  </div> 
+  <div class="col-md-4">
   
-    
-<% end %>
+  </div>
+</div>
