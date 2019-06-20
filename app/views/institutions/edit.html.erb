@@ -1,3 +1,5 @@
 <h1>Editing Institution</h1>
 
 <%= render 'form', institution: @institution %>
+
+<%= link_to 'Destroy', @institution, method: :delete, data: { confirm: 'Are you sure?' } %>
