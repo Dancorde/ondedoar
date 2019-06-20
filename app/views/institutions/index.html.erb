@@ -1,41 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Institutions</h1>
+<div class="card">
+  <div class="card-header">
+    <h1>Instituições</h1>
+  </div>
+  <div class="card-body">
+    <table class="table table-striped">
+      <thead class="text-center">
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Cidade</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Necessidades</th>
+          <th scope="col">Descrição</th>
+          <th scope="col" colspan="3"></th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <% @institutions.each do |institution| %>
+          <tr>
+            <td><%= institution.name %></td>
+            <td><%= institution.city %></td>
+            <td><%= institution.state %></td>
+            <td><%= institution.needs.map(&:necessidade).join(", ") %></td>
+            <td><%= institution.description %></td>
+            <td><%= link_to 'Ver mais', institution %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<table class="table table-striped">
-  <thead class="text-center">
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Phone</th>
-      <th scope="col">Address</th>
-      <th scope="col">City</th>
-      <th scope="col">State</th>
-      <th scope="col">Needs</th>
-      <th scope="col">Description</th>
-      <th scope="col" colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @institutions.each do |institution| %>
-      <tr>
-        <td><%= institution.name %></td>
-        <td><%= institution.email %></td>
-        <td><%= institution.phone %></td>
-        <td><%= institution.address %></td>
-        <td><%= institution.city %></td>
-        <td><%= institution.state %></td>
-        <td><%= institution.needs.map(&:necessidade).join(", ") %></td>
-        <td><%= institution.description %></td>
-        <td><%= link_to 'Show', institution %></td>
-        <td><%= link_to 'Edit', edit_institution_path(institution) %></td>
-        <td><%= link_to 'Destroy', institution, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Institution', new_institution_path %>
+  </div>
+</div>

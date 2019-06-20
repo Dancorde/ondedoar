@@ -5,7 +5,7 @@
   <div class='col-sm-6 col-lg-12'>
     <div class="card">
       <div class="card-header text-center">
-        <%= @institution.name %>
+        <h1><%= @institution.name %></h1>
       </div>
       <div class="card-body">
         <div class="row">
@@ -46,8 +46,7 @@
   
       </div>
       <div class="card-footer">
-        <%= link_to 'Edit', edit_institution_path(@institution), class: "btn btn-warning" %>
-        <%= link_to 'Back', institutions_path, class: "btn btn-primary" %>
+        <%= link_to 'Voltar', institutions_path, class: "btn btn-primary" %>
       </div>
     </div>
   </div>

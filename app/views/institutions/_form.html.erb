@@ -14,24 +14,24 @@
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
-        <%= form.label :name %>
+        <label for="name">Nome</label>
         <%= form.text_field :name, class: "form-control"%>
       </div>
       
       <div class="form-row">
         <div class="form-group col-md-6">
-          <%= form.label :email %>
+          <label for="email">E-mail</label>
           <%= form.text_field :email, class: "form-control" %>
         </div>
       
         <div class="form-group col-md-6">
-          <%= form.label :phone %>
+          <label for="phone">Telefone</label>
           <%= form.text_field :phone, class: "form-control" %>
         </div>
       </div>
 
       <div class="form-group">
-        <%= form.label :address %>
+        <label for="address">Endereço</label>
         <%= form.text_field :address, class: "form-control" %>
       </div>
     </div>
@@ -39,18 +39,18 @@
     <div class="col-md-6">
       <div class="form-row">
         <div class="form-group col-md-4">
-          <%= form.label :state %>
+          <label for="state">Estado</label>
           <%= form.collection_select(:state, @states, :name, :acronym, {include_blank: false}, {:id => 'states_sected', :class => "form-control"}) %>
         </div>
 
         <div class="form-group col-md-8">
-          <%= form.label :city %>
+          <label for="city">Cidade</label>
           <%= form.grouped_collection_select :city, State.order(:name), :cities, :acronym, :name, :name, {include_blank: false}, class: "form-control" %>
         </div>      
       </div>
 
       <div class="form-group">
-        <%= form.label :description %>
+        <label for="description">Descrição</label>
         <%= form.text_area :description, size: '50x5', class: "form-control" %>
       </div>            
     </div>
@@ -61,7 +61,7 @@
       <div class="form-group">
         <div class="row">
           <div class="col-2">
-            <%= form.label :needs %>
+            <label for="needs">Necessidades</label>
           </div>
           <div class="col-10">
             <div class="form-check form-check-inline">
@@ -80,7 +80,7 @@
   </div>
 
   <div class="actions card-footer">
-    <%= form.submit class: "btn btn-primary"%>
-    <%= link_to 'Back', institutions_path, class: "btn btn-primary float-right"%>
+    <%= form.submit "Salvar", class: "btn btn-primary"%>
+    <%= link_to 'Voltar', root_path, class: "btn btn-primary float-right"%>
   </div>
 <% end %>

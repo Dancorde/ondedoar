@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get "/search" => "pages#search"
+  get "/criadores" => "pages#criadores"
+  get "/contato" => "pages#contato"
 end
