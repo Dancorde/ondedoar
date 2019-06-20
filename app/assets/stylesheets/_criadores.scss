@@ -1,0 +1,48 @@
+.card-criadores-imagem{
+    height: 8em;
+}
+
+#titulo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  color: #1f3f94;
+  font-size: 5em;
+}
+.titulo-card{
+  font-size: 2em;
+
+}
+
+
+.card-criadores{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    min-height: 21%;
+    margin: 2% 0;
+}
+
+.card-criadores-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28%;
+    margin-right: 2%;
+    background-color: #FEE7DD;
+
+}
+.card-criadores-txt{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 68%;
+    margin-left: 2%;
+}
+
+.p-txt{
+    width: 90%;
+    color: rgb(107, 107, 107);
+    font-size: 0.9em;
+}
